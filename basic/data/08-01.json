@@ -1,0 +1,35 @@
+{
+  "validation_matrix": [
+    {
+      "input": {
+        "limit": 3,
+        "values": [
+          "x",
+          "xxxx",
+          17
+        ]
+      },
+      "output": [
+        201,
+        422,
+        422
+      ]
+    }
+  ],
+  "validation_effect": [
+    {
+      "input": [
+        {
+          "id": "x",
+          "valid": false,
+          "before": 0,
+          "after": 1,
+          "status": 422
+        }
+      ],
+      "output": [
+        "x"
+      ]
+    }
+  ]
+}

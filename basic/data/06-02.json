@@ -1,0 +1,53 @@
+{
+  "pytest_summary": [
+    {
+      "input": [
+        "passed",
+        "failed"
+      ],
+      "output": {
+        "counts": {
+          "passed": 1,
+          "failed": 1,
+          "skipped": 0,
+          "xfailed": 0,
+          "xpassed": 0
+        },
+        "total": 2,
+        "acceptable": false
+      }
+    }
+  ],
+  "fixture_leaks": [
+    {
+      "input": [
+        {
+          "test": "a",
+          "before": [],
+          "created": [
+            "x"
+          ],
+          "after": [
+            "x"
+          ]
+        },
+        {
+          "test": "b",
+          "before": [
+            "x"
+          ],
+          "created": [
+            "y"
+          ],
+          "after": [
+            "x",
+            "y"
+          ]
+        }
+      ],
+      "output": [
+        "b"
+      ]
+    }
+  ]
+}

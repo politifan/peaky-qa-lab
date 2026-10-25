@@ -1,0 +1,43 @@
+{
+  "normalize_contract": [
+    {
+      "input": {
+        "limit": 3,
+        "values": [
+          " x ",
+          null,
+          "abcd"
+        ]
+      },
+      "output": [
+        {
+          "status": "valid",
+          "value": "x"
+        },
+        {
+          "status": "type_error",
+          "value": null
+        },
+        {
+          "status": "too_long",
+          "value": "abcd"
+        }
+      ]
+    }
+  ],
+  "case_results": [
+    {
+      "input": [
+        {
+          "id": "one",
+          "a": 2,
+          "b": 3,
+          "expected": 5
+        }
+      ],
+      "output": {
+        "one": true
+      }
+    }
+  ]
+}

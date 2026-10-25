@@ -1,0 +1,41 @@
+{
+  "risk_order": [
+    {
+      "input": [
+        {
+          "id": "a",
+          "impact": 2,
+          "probability": 5
+        },
+        {
+          "id": "b",
+          "impact": 5,
+          "probability": 2
+        }
+      ],
+      "output": [
+        "b",
+        "a"
+      ]
+    }
+  ],
+  "session_gaps": [
+    {
+      "input": {
+        "areas": [
+          "save",
+          "read"
+        ],
+        "events": [
+          {
+            "area": "save",
+            "status": "finished"
+          }
+        ]
+      },
+      "output": [
+        "read"
+      ]
+    }
+  ]
+}

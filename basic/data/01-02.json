@@ -1,0 +1,32 @@
+{
+  "strict_types": [
+    {
+      "input": [
+        14,
+        "14",
+        null,
+        true
+      ],
+      "output": [
+        true,
+        false,
+        false,
+        false
+      ]
+    }
+  ],
+  "clean_labels": [
+    {
+      "input": [
+        " a ",
+        "",
+        "a",
+        "B"
+      ],
+      "output": [
+        "a",
+        "B"
+      ]
+    }
+  ]
+}

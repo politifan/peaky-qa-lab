@@ -1,0 +1,37 @@
+{
+  "remaining": [
+    {
+      "input": {
+        "free": 5,
+        "requests": [
+          3,
+          2,
+          1
+        ]
+      },
+      "output": {
+        "remaining": 0,
+        "accepted": [
+          0,
+          1
+        ]
+      }
+    }
+  ],
+  "booking_audit": [
+    {
+      "input": [
+        {
+          "id": "b",
+          "before": 2,
+          "requested": 2,
+          "accepted": false,
+          "after": 2
+        }
+      ],
+      "output": [
+        "b"
+      ]
+    }
+  ]
+}

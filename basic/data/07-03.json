@@ -1,0 +1,44 @@
+{
+  "persistence_audit": [
+    {
+      "input": {
+        "before": [
+          {
+            "id": 1,
+            "owner": "u",
+            "title": "a",
+            "key": "k"
+          }
+        ],
+        "after": []
+      },
+      "output": [
+        1
+      ]
+    }
+  ],
+  "store_events": [
+    {
+      "input": {
+        "persistent": true,
+        "events": [
+          {
+            "op": "save",
+            "key": "a",
+            "value": "x"
+          },
+          {
+            "op": "restart"
+          },
+          {
+            "op": "read",
+            "key": "a"
+          }
+        ]
+      },
+      "output": [
+        "x"
+      ]
+    }
+  ]
+}

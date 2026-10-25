@@ -1,0 +1,32 @@
+{
+  "status_classes": [
+    {
+      "input": [
+        200,
+        201,
+        404,
+        500
+      ],
+      "output": [
+        "success",
+        "success",
+        "client_error",
+        "server_error"
+      ]
+    }
+  ],
+  "query_params": [
+    {
+      "input": "tag=a&tag=b&limit=10",
+      "output": {
+        "tag": [
+          "a",
+          "b"
+        ],
+        "limit": [
+          "10"
+        ]
+      }
+    }
+  ]
+}

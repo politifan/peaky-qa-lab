@@ -1,0 +1,49 @@
+{
+  "required_gate": [
+    {
+      "input": {
+        "expected": [
+          "a",
+          "b"
+        ],
+        "reports": [
+          {
+            "nodeid": "a",
+            "status": "passed"
+          }
+        ]
+      },
+      "output": {
+        "ok": false,
+        "bad": [
+          "b"
+        ]
+      }
+    }
+  ],
+  "mutation_score": [
+    {
+      "input": [
+        {
+          "id": "a",
+          "reference_passed": true,
+          "mutant_passed": false
+        },
+        {
+          "id": "b",
+          "reference_passed": true,
+          "mutant_passed": true
+        }
+      ],
+      "output": {
+        "valid": true,
+        "caught": [
+          "a"
+        ],
+        "weak": [
+          "b"
+        ]
+      }
+    }
+  ]
+}

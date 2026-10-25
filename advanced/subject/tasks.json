@@ -1,0 +1,502 @@
+{
+  "m01-l01-p1": {
+    "key": "m01-l01-p1",
+    "lesson": "m01-l01",
+    "title": "Независимый граничный pytest тест",
+    "kind": "pytest",
+    "goal": "Напишите test_* для количества 0,1,5,6 и отсутствия записи после отказа. Используйте client и make_data.",
+    "min_tests": 1,
+    "local_points": 5,
+    "stepik_points": null
+  },
+  "m01-l01-p2": {
+    "key": "m01-l01-p2",
+    "lesson": "m01-l01",
+    "title": "Оракул точного типа ответа",
+    "kind": "pytest",
+    "goal": "Проверьте id именно int, quantity и поля запроса реального TestClient ответа.",
+    "min_tests": 1,
+    "local_points": 8,
+    "stepik_points": null
+  },
+  "m01-l02-p1": {
+    "key": "m01-l02-p1",
+    "lesson": "m01-l02",
+    "title": "Проверка фабрики и aliasing",
+    "kind": "pytest",
+    "goal": "Напишите тест target.payload_factory(seed): одинаковый seed даёт одинаковый key, mutable tags принадлежат разным результатам.",
+    "min_tests": 1,
+    "local_points": 5,
+    "stepik_points": null
+  },
+  "m01-l02-p2": {
+    "key": "m01-l02-p2",
+    "lesson": "m01-l02",
+    "title": "Teardown после исключения",
+    "kind": "pytest",
+    "goal": "Проверьте target.resources(log) as resources при ValueError внутри with. Ожидаются open:db/open:client и обратные close:client/close:db. После выхода resources.client.is_closed=True; SELECT 1 через resources.db вызывает sqlite3.ProgrammingError.",
+    "min_tests": 1,
+    "local_points": 8,
+    "stepik_points": null
+  },
+  "m01-control-p1": {
+    "key": "m01-control-p1",
+    "lesson": "m01-control",
+    "title": "Изоляция после ускорения fixtures",
+    "kind": "pytest",
+    "goal": "Проверьте отдельные файлы БД и независимость mutable фабрики в одном наборе.",
+    "min_tests": 2,
+    "local_points": 5,
+    "stepik_points": null
+  },
+  "m01-control-p2": {
+    "key": "m01-control-p2",
+    "lesson": "m01-control",
+    "title": "Чувствительность двух независимых оракулов",
+    "kind": "pytest",
+    "goal": "Напишите минимум два теста: границы количества и точный тип ответа. Пропуск одного риска не принимается.",
+    "min_tests": 2,
+    "local_points": 8,
+    "stepik_points": null
+  },
+  "m02-l01-p1": {
+    "key": "m02-l01-p1",
+    "lesson": "m02-l01",
+    "title": "HTTPX MockTransport по статусу и схеме",
+    "kind": "pytest",
+    "goal": "Проверьте target.availability(client,event): 200 с available:bool, 503, строковый available и отсутствие поля.",
+    "min_tests": 1,
+    "local_points": 5,
+    "stepik_points": null
+  },
+  "m02-l01-p2": {
+    "key": "m02-l01-p2",
+    "lesson": "m02-l01",
+    "title": "Timeout не становится успехом",
+    "kind": "pytest",
+    "goal": "Через HTTPX MockTransport внесите ReadTimeout. Ожидайте target.DependencyError вместо успешного ответа.",
+    "min_tests": 1,
+    "local_points": 8,
+    "stepik_points": null
+  },
+  "m02-l02-p1": {
+    "key": "m02-l02-p1",
+    "lesson": "m02-l02",
+    "title": "Три повтора один эффект",
+    "kind": "pytest",
+    "goal": "Напишите настоящий pytest тест трёх повторов POST; сравните id, статус и список строк.",
+    "min_tests": 1,
+    "local_points": 5,
+    "stepik_points": null
+  },
+  "m02-l02-p2": {
+    "key": "m02-l02-p2",
+    "lesson": "m02-l02",
+    "title": "Чтение после нового app",
+    "kind": "pytest",
+    "goal": "Создайте старую запись через app_factory(path), закройте engine, откройте новый app на том же файле, прочитайте и повторите.",
+    "min_tests": 1,
+    "local_points": 8,
+    "stepik_points": null
+  },
+  "m02-control-p1": {
+    "key": "m02-control-p1",
+    "lesson": "m02-control",
+    "title": "Старый клиент и строгий вход",
+    "kind": "pytest",
+    "goal": "Минимум два теста: ответ с прежними точными типами и отклонение bool/строки/дробного quantity без записей.",
+    "min_tests": 2,
+    "local_points": 5,
+    "stepik_points": null
+  },
+  "m02-control-p2": {
+    "key": "m02-control-p2",
+    "lesson": "m02-control",
+    "title": "Конфликт не разрушает историю",
+    "kind": "pytest",
+    "goal": "Минимум два теста: конфликт изменённого повтора и сохранность между app.",
+    "min_tests": 2,
+    "local_points": 8,
+    "stepik_points": null
+  },
+  "m03-l01-p1": {
+    "key": "m03-l01-p1",
+    "lesson": "m03-l01",
+    "title": "Playwright ожидание отказа",
+    "kind": "ui",
+    "goal": "Напишите Python UI test_*: quantity=0, реальный POST=422, видимый текст Ошибка 422. Произвольный sleep запрещён.",
+    "min_tests": 1,
+    "local_points": 5,
+    "stepik_points": null
+  },
+  "m03-l01-p2": {
+    "key": "m03-l01-p2",
+    "lesson": "m03-l01",
+    "title": "Смысловой локатор и реальный эффект",
+    "kind": "ui",
+    "goal": "Форма Бронирование — область локатора. На странице есть ещё одна одноимённая кнопка. Сверьте owner, quantity и id UI/API/GET.",
+    "min_tests": 1,
+    "local_points": 8,
+    "stepik_points": null
+  },
+  "m03-l02-p1": {
+    "key": "m03-l02-p1",
+    "lesson": "m03-l02",
+    "title": "Изолированные contexts и подтверждённый E2E",
+    "kind": "ui",
+    "goal": "Напишите два теста: независимые cookies двух context и создание формы с независимым GET.",
+    "min_tests": 2,
+    "local_points": 5,
+    "stepik_points": null
+  },
+  "m03-l02-p2": {
+    "key": "m03-l02-p2",
+    "lesson": "m03-l02",
+    "title": "Негативный UI сохраняет контракт",
+    "kind": "ui",
+    "goal": "Проверьте реальный ошибочный ответ и видимый отказ; скриншот успеха без API не принимается.",
+    "min_tests": 1,
+    "local_points": 8,
+    "stepik_points": null
+  },
+  "m03-control-p1": {
+    "key": "m03-control-p1",
+    "lesson": "m03-control",
+    "title": "Два противоположных UI пути",
+    "kind": "ui",
+    "goal": "Минимум два теста: корректное создание через форму и отказ quantity=0. Поймайте реальный POST.",
+    "min_tests": 2,
+    "local_points": 5,
+    "stepik_points": null
+  },
+  "m03-control-p2": {
+    "key": "m03-control-p2",
+    "lesson": "m03-control",
+    "title": "E2E с конкретной принадлежностью",
+    "kind": "ui",
+    "goal": "Проверьте владелец/количество/номер UI, POST и независимого GET; нельзя заменить проверку одним текстом Бронь.",
+    "min_tests": 1,
+    "local_points": 8,
+    "stepik_points": null
+  },
+  "m04-l01-p1": {
+    "key": "m04-l01-p1",
+    "lesson": "m04-l01",
+    "title": "Pytest против ложного quality gate",
+    "kind": "pytest",
+    "goal": "Проверьте target.release(report,commit) на корректном отчёте и всех пяти независимых причинах блокировки.",
+    "min_tests": 1,
+    "local_points": 5,
+    "stepik_points": null
+  },
+  "m04-l01-p2": {
+    "key": "m04-l01-p2",
+    "lesson": "m04-l01",
+    "title": "Код дочернего процесса",
+    "kind": "pytest",
+    "goal": "Создайте три временных Python файла с выходом 0,1,5. target.execute(path) обязан вернуть реальный код.",
+    "min_tests": 1,
+    "local_points": 8,
+    "stepik_points": null
+  },
+  "m04-l02-p1": {
+    "key": "m04-l02-p1",
+    "lesson": "m04-l02",
+    "title": "Детерминированные часы через monkeypatch",
+    "kind": "pytest",
+    "goal": "Подмените target.now на 100. target.expired(deadline) истинно только при deadline<now, граница 100 допустима.",
+    "min_tests": 1,
+    "local_points": 5,
+    "stepik_points": null
+  },
+  "m04-l02-p2": {
+    "key": "m04-l02-p2",
+    "lesson": "m04-l02",
+    "title": "Загрязнение данных обнаруживается тестом",
+    "kind": "pytest",
+    "goal": "Проверьте отдельные файлы app_factory и mutable результаты target.payload_factory.",
+    "min_tests": 2,
+    "local_points": 8,
+    "stepik_points": null
+  },
+  "m04-control-p1": {
+    "key": "m04-control-p1",
+    "lesson": "m04-control",
+    "title": "Junit и gate дают разные доказательства",
+    "kind": "pytest",
+    "goal": "Напишите два теста: суммирование XML suites с failures/errors/skipped и независимые причины gate.",
+    "min_tests": 2,
+    "local_points": 5,
+    "stepik_points": null
+  },
+  "m04-control-p2": {
+    "key": "m04-control-p2",
+    "lesson": "m04-control",
+    "title": "Обёртка не скрывает отказ",
+    "kind": "pytest",
+    "goal": "Верный код child process и корректный gate проверяются отдельными pytest тестами.",
+    "min_tests": 2,
+    "local_points": 8,
+    "stepik_points": null
+  },
+  "m05-l01-p1": {
+    "key": "m05-l01-p1",
+    "lesson": "m05-l01",
+    "title": "Locust проверяет бизнес схему",
+    "kind": "locust",
+    "goal": "Сдайте HttpUser с @task POST. При 201 проверяйте id:int и quantity, повреждённый 200/201 отмечайте failure через catch_response.",
+    "min_tests": 1,
+    "local_points": 5,
+    "stepik_points": null
+  },
+  "m05-l01-p2": {
+    "key": "m05-l01-p2",
+    "lesson": "m05-l01",
+    "title": "Locust проверяет чужое чтение",
+    "kind": "locust",
+    "goal": "Создайте свою бронь и выполняйте чтение другим owner: ожидаемый 404 объявляйте success, раскрытие 200 — failure.",
+    "min_tests": 1,
+    "local_points": 8,
+    "stepik_points": null
+  },
+  "m05-l02-p1": {
+    "key": "m05-l02-p1",
+    "lesson": "m05-l02",
+    "title": "Операция после конфликта",
+    "kind": "pytest",
+    "goal": "Проверьте 409 без переписи старого объекта и следующий корректный запрос в той же среде.",
+    "min_tests": 1,
+    "local_points": 5,
+    "stepik_points": null
+  },
+  "m05-l02-p2": {
+    "key": "m05-l02-p2",
+    "lesson": "m05-l02",
+    "title": "Восстановление требует старых данных",
+    "kind": "pytest",
+    "goal": "Напишите функциональную проверку старого id после нового app и повтора. Health не является оракулом.",
+    "min_tests": 1,
+    "local_points": 8,
+    "stepik_points": null
+  },
+  "m05-control-p1": {
+    "key": "m05-control-p1",
+    "lesson": "m05-control",
+    "title": "Рестарт действительно другого процесса",
+    "kind": "pytest",
+    "goal": "Используйте restart_probe(data): он выполняет создание и чтение в отдельных Python процессах. Сверьте полный объект и типы.",
+    "min_tests": 1,
+    "local_points": 5,
+    "stepik_points": null
+  },
+  "m05-control-p2": {
+    "key": "m05-control-p2",
+    "lesson": "m05-control",
+    "title": "Два механизма отказа разделены",
+    "kind": "pytest",
+    "goal": "Напишите два теста: ReadTimeout зависимости и сохранность app. Каждая неисправность должна обнаруживаться.",
+    "min_tests": 2,
+    "local_points": 8,
+    "stepik_points": null
+  },
+  "battle1-p1": {
+    "key": "battle1-p1",
+    "lesson": "battle1",
+    "title": "Утечка в матрице GET",
+    "kind": "pytest",
+    "goal": "Два владельца, собственный 200 и чужой 404 в обе стороны, новые метки каждой попытки.",
+    "min_tests": 1,
+    "local_points": 5,
+    "stepik_points": null
+  },
+  "battle1-p2": {
+    "key": "battle1-p2",
+    "lesson": "battle1",
+    "title": "Список по конкретным id",
+    "kind": "pytest",
+    "goal": "Создайте две записи и проверьте собственные конкретные id списка, чужая запись отсутствует.",
+    "min_tests": 1,
+    "local_points": 8,
+    "stepik_points": null
+  },
+  "battle2-p1": {
+    "key": "battle2-p1",
+    "lesson": "battle2",
+    "title": "Дубль обнаружен по данным",
+    "kind": "pytest",
+    "goal": "Три повтора должны давать один id и одну строку, а не только одинаковый текст.",
+    "min_tests": 1,
+    "local_points": 5,
+    "stepik_points": null
+  },
+  "battle2-p2": {
+    "key": "battle2-p2",
+    "lesson": "battle2",
+    "title": "Изменённый повтор не принят",
+    "kind": "pytest",
+    "goal": "Ожидайте 409, неизменный старый объект и успешный следующий запрос с новым key.",
+    "min_tests": 1,
+    "local_points": 8,
+    "stepik_points": null
+  },
+  "battle3-p1": {
+    "key": "battle3-p1",
+    "lesson": "battle3",
+    "title": "Постоянство между app",
+    "kind": "pytest",
+    "goal": "Создайте и прочитайте прежнюю бронь новым app с тем же файлом.",
+    "min_tests": 1,
+    "local_points": 5,
+    "stepik_points": null
+  },
+  "battle3-p2": {
+    "key": "battle3-p2",
+    "lesson": "battle3",
+    "title": "Постоянство между процессами",
+    "kind": "pytest",
+    "goal": "Сверьте before/after реального restart_probe на новых вымышленных данных.",
+    "min_tests": 1,
+    "local_points": 8,
+    "stepik_points": null
+  },
+  "battle4-p1": {
+    "key": "battle4-p1",
+    "lesson": "battle4",
+    "title": "Ложный выпуск отвергнут",
+    "kind": "pytest",
+    "goal": "Критический карантин, пустота, failed, exit и чужой commit отдельно блокируются; корректный report принимается.",
+    "min_tests": 1,
+    "local_points": 5,
+    "stepik_points": null
+  },
+  "battle4-p2": {
+    "key": "battle4-p2",
+    "lesson": "battle4",
+    "title": "Непустая диагностика не отменяет ошибку",
+    "kind": "pytest",
+    "goal": "Проверьте суммарные errors/skipped XML и реальный ненулевой child exit в двух тестах.",
+    "min_tests": 2,
+    "local_points": 8,
+    "stepik_points": null
+  },
+  "battle-control-p1": {
+    "key": "battle-control-p1",
+    "lesson": "battle-control",
+    "title": "Два независимых эффекта инцидента",
+    "kind": "pytest",
+    "goal": "Тесты обнаруживают утечку владельца и дубли повторов независимо.",
+    "min_tests": 2,
+    "local_points": 5,
+    "stepik_points": null
+  },
+  "battle-control-p2": {
+    "key": "battle-control-p2",
+    "lesson": "battle-control",
+    "title": "Сохранность и дальнейшая работа",
+    "kind": "pytest",
+    "goal": "Новый app сохраняет старые данные, а конфликт не блокирует новую операцию.",
+    "min_tests": 2,
+    "local_points": 8,
+    "stepik_points": null
+  },
+  "project1-p1": {
+    "key": "project1-p1",
+    "lesson": "project1",
+    "title": "Контракт внешнего провайдера HTTPX",
+    "kind": "pytest",
+    "goal": "Полный MockTransport набор: корректный bool, неверный статус/схема и ReadTimeout.",
+    "min_tests": 2,
+    "local_points": 5,
+    "stepik_points": null
+  },
+  "project1-p2": {
+    "key": "project1-p2",
+    "lesson": "project1",
+    "title": "Восемь мутаций контрактной лаборатории",
+    "kind": "pytest",
+    "goal": "Не менее шести pytest сценариев защищают границы, строгий ввод, схему, владельцев, повтор, конфликт и постоянство. Каждый из восьми дефектов должен давать assertion failure.",
+    "min_tests": 6,
+    "local_points": 8,
+    "stepik_points": null
+  },
+  "project2-p1": {
+    "key": "project2-p1",
+    "lesson": "project2",
+    "title": "Два браузерных бизнес пути",
+    "kind": "ui",
+    "goal": "Полный положительный UI/API/GET и отрицательный UI путь, отдельные ожидания и fixtures.",
+    "min_tests": 2,
+    "local_points": 5,
+    "stepik_points": null
+  },
+  "project2-p2": {
+    "key": "project2-p2",
+    "lesson": "project2",
+    "title": "Контексты и пользовательский эффект",
+    "kind": "ui",
+    "goal": "Два context не делят cookies; POST формы сохраняет данные своего owner и отображает настоящий id.",
+    "min_tests": 2,
+    "local_points": 8,
+    "stepik_points": null
+  },
+  "project3-p1": {
+    "key": "project3-p1",
+    "lesson": "project3",
+    "title": "Pytest валидации dashboard",
+    "kind": "pytest",
+    "goal": "dashboard_client — настоящий FastAPI+SQLAlchemy сервис. Проверьте строгие типы и сумму исходов, 422 не сохраняет run.",
+    "min_tests": 1,
+    "local_points": 5,
+    "stepik_points": null
+  },
+  "project3-p2": {
+    "key": "project3-p2",
+    "lesson": "project3",
+    "title": "Идемпотентность приема результатов",
+    "kind": "pytest",
+    "goal": "200 эквивалентного attempt, 409 изменённого, старый JUnit итог неизменен.",
+    "min_tests": 1,
+    "local_points": 8,
+    "stepik_points": null
+  },
+  "project4-p1": {
+    "key": "project4-p1",
+    "lesson": "project4",
+    "title": "Locust повторов с одним ключом",
+    "kind": "locust",
+    "goal": "HttpUser сохраняет owner/key. Первый POST=201, повтор=200 и прежний id. Любой новый эффект повторов даёт failure.",
+    "min_tests": 1,
+    "local_points": 5,
+    "stepik_points": null
+  },
+  "project4-p2": {
+    "key": "project4-p2",
+    "lesson": "project4",
+    "title": "Locust ожидаемого бизнес отказа",
+    "kind": "locust",
+    "goal": "quantity=0 обязан вернуть 422; ожидаемый отказ отмечается success, ошибочное принятие — failure.",
+    "min_tests": 1,
+    "local_points": 8,
+    "stepik_points": null
+  },
+  "portfolio-control-p1": {
+    "key": "portfolio-control-p1",
+    "lesson": "portfolio-control",
+    "title": "Контрактная передача двух продуктов",
+    "kind": "pytest",
+    "goal": "Два pytest теста: валидация настоящего dashboard и строгий gate. Механизмы проверяются независимо.",
+    "min_tests": 2,
+    "local_points": 5,
+    "stepik_points": null
+  },
+  "portfolio-control-p2": {
+    "key": "portfolio-control-p2",
+    "lesson": "portfolio-control",
+    "title": "Независимая приемка сохранности",
+    "kind": "pytest",
+    "goal": "Два pytest теста: реальный отдельный процесс и конфликт старого содержимого без переписи.",
+    "min_tests": 2,
+    "local_points": 8,
+    "stepik_points": null
+  }
+}

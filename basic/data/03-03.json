@@ -1,0 +1,35 @@
+{
+  "draft_mismatch": [
+    {
+      "input": [
+        {
+          "id": "a",
+          "expected": "draft-1",
+          "observed": "draft-0"
+        }
+      ],
+      "output": [
+        "a"
+      ]
+    }
+  ],
+  "draft_history": [
+    {
+      "input": [
+        {
+          "op": "save",
+          "draft_id": "a",
+          "text": "new"
+        },
+        {
+          "op": "read",
+          "draft_id": "a",
+          "text": "old"
+        }
+      ],
+      "output": [
+        1
+      ]
+    }
+  ]
+}

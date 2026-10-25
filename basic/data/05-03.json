@@ -1,0 +1,59 @@
+{
+  "duplicate_groups": [
+    {
+      "input": [
+        {
+          "id": 2,
+          "owner": "u",
+          "key": "k",
+          "title": "a"
+        },
+        {
+          "id": 1,
+          "owner": "u",
+          "key": "k",
+          "title": "a"
+        }
+      ],
+      "output": [
+        {
+          "owner": "u",
+          "key": "k",
+          "ids": [
+            1,
+            2
+          ]
+        }
+      ]
+    }
+  ],
+  "dedup_plan": [
+    {
+      "input": [
+        {
+          "id": 2,
+          "owner": "u",
+          "key": "k",
+          "title": "a"
+        },
+        {
+          "id": 1,
+          "owner": "u",
+          "key": "k",
+          "title": "a"
+        }
+      ],
+      "output": [
+        {
+          "owner": "u",
+          "key": "k",
+          "conflict": false,
+          "keep": 1,
+          "archive": [
+            2
+          ]
+        }
+      ]
+    }
+  ]
+}

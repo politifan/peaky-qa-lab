@@ -1,0 +1,41 @@
+{
+  "payment_contract": [
+    {
+      "input": [
+        {
+          "id": "p",
+          "expected_amount": 1500,
+          "amount": 1500,
+          "expected_currency": "RUB",
+          "currency": "USD",
+          "status": 200,
+          "state": "pending"
+        }
+      ],
+      "output": [
+        "p"
+      ]
+    }
+  ],
+  "reconcile": [
+    {
+      "input": {
+        "receipts": [
+          {
+            "id": "p",
+            "amount": 1
+          }
+        ],
+        "debits": [
+          {
+            "id": "p",
+            "amount": 2
+          }
+        ]
+      },
+      "output": [
+        "p"
+      ]
+    }
+  ]
+}

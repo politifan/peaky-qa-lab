@@ -1,0 +1,45 @@
+{
+  "admission": [
+    {
+      "input": {
+        "min": 14,
+        "max": 80,
+        "ages": [
+          13,
+          14,
+          80,
+          81
+        ]
+      },
+      "output": [
+        false,
+        true,
+        true,
+        false
+      ]
+    }
+  ],
+  "age_audit": [
+    {
+      "input": {
+        "min": 14,
+        "max": 80,
+        "rows": [
+          {
+            "id": "x",
+            "age": 14,
+            "admitted": false
+          },
+          {
+            "id": "y",
+            "age": 15,
+            "admitted": true
+          }
+        ]
+      },
+      "output": [
+        "x"
+      ]
+    }
+  ]
+}

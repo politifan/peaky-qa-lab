@@ -1,0 +1,39 @@
+{
+  "report_fields": [
+    {
+      "input": [
+        {
+          "id": "b",
+          "title": "bug",
+          "steps": "1",
+          "expected": "a",
+          "actual": "b"
+        }
+      ],
+      "output": {
+        "b": [
+          "build"
+        ]
+      }
+    }
+  ],
+  "lifecycle": [
+    {
+      "input": [
+        {
+          "id": "a",
+          "from": "fixed",
+          "to": "closed"
+        },
+        {
+          "id": "b",
+          "from": "new",
+          "to": "triaged"
+        }
+      ],
+      "output": [
+        "a"
+      ]
+    }
+  ]
+}

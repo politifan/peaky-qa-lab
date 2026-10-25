@@ -1,0 +1,45 @@
+{
+  "staged_paths": [
+    {
+      "input": [
+        {
+          "path": ".venv/x.py",
+          "staged": true,
+          "tracked": false
+        },
+        {
+          "path": "tests/test_a.py",
+          "staged": true,
+          "tracked": true
+        }
+      ],
+      "output": [
+        ".venv/x.py"
+      ]
+    }
+  ],
+  "report_commit": [
+    {
+      "input": {
+        "expected_commit": "a",
+        "reports": [
+          {
+            "id": "ok",
+            "commit": "a",
+            "dirty": false,
+            "exit_code": 0
+          },
+          {
+            "id": "b",
+            "commit": "b",
+            "dirty": false,
+            "exit_code": 0
+          }
+        ]
+      },
+      "output": [
+        "b"
+      ]
+    }
+  ]
+}

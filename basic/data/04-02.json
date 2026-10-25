@@ -1,0 +1,43 @@
+{
+  "response_schema": [
+    {
+      "input": [
+        {
+          "id": 1,
+          "title": "a",
+          "owner": "u"
+        },
+        {
+          "id": true,
+          "title": "a",
+          "owner": "u"
+        }
+      ],
+      "output": [
+        true,
+        false
+      ]
+    }
+  ],
+  "retry_audit": [
+    {
+      "input": [
+        {
+          "owner": "u",
+          "key": "k",
+          "title": "a",
+          "id": 1
+        },
+        {
+          "owner": "u",
+          "key": "k",
+          "title": "a",
+          "id": 2
+        }
+      ],
+      "output": [
+        1
+      ]
+    }
+  ]
+}

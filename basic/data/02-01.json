@@ -1,0 +1,40 @@
+{
+  "title_classes": [
+    {
+      "input": {
+        "limit": 3,
+        "titles": [
+          " x ",
+          "   ",
+          "abcd"
+        ]
+      },
+      "output": [
+        "valid",
+        "empty",
+        "too_long"
+      ]
+    }
+  ],
+  "coverage": [
+    {
+      "input": {
+        "requirements": [
+          "R1",
+          "R2"
+        ],
+        "tests": [
+          {
+            "requirements": [
+              "R1"
+            ],
+            "status": "passed"
+          }
+        ]
+      },
+      "output": [
+        "R2"
+      ]
+    }
+  ]
+}

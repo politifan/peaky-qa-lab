@@ -1,0 +1,47 @@
+{
+  "operation_effect": [
+    {
+      "input": [
+        {
+          "id": "a",
+          "before": 0,
+          "after": 1,
+          "status": 201,
+          "sent": " x ",
+          "stored": "x"
+        },
+        {
+          "id": "b",
+          "before": 0,
+          "after": 0,
+          "status": 201,
+          "sent": " x ",
+          "stored": "x"
+        }
+      ],
+      "output": [
+        "b"
+      ]
+    }
+  ],
+  "http_assertions": [
+    {
+      "input": [
+        {
+          "id": "a",
+          "expected_status": 200,
+          "status": 200,
+          "expected_body": {
+            "x": 1
+          },
+          "body": {
+            "x": true
+          }
+        }
+      ],
+      "output": [
+        "a"
+      ]
+    }
+  ]
+}

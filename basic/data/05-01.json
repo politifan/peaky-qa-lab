@@ -1,0 +1,52 @@
+{
+  "sql_filter": [
+    {
+      "input": {
+        "status": "open",
+        "rows": [
+          {
+            "id": 3,
+            "status": "open",
+            "title": ""
+          },
+          {
+            "id": 1,
+            "status": "open",
+            "title": null
+          },
+          {
+            "id": 2,
+            "status": "closed",
+            "title": "a"
+          }
+        ]
+      },
+      "output": [
+        3
+      ]
+    }
+  ],
+  "orphan_join": [
+    {
+      "input": {
+        "owners": [
+          1,
+          2
+        ],
+        "tickets": [
+          {
+            "id": 2,
+            "owner_id": 1
+          },
+          {
+            "id": 1,
+            "owner_id": 3
+          }
+        ]
+      },
+      "output": [
+        1
+      ]
+    }
+  ]
+}

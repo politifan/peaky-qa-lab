@@ -1,0 +1,44 @@
+{
+  "release_contract": [
+    {
+      "input": [
+        {
+          "check": "validation",
+          "passed": true,
+          "executed": true
+        }
+      ],
+      "output": {
+        "ok": false,
+        "missing": [
+          "conflict",
+          "owner",
+          "restart",
+          "retry"
+        ]
+      }
+    }
+  ],
+  "battle_gate": [
+    {
+      "input": {
+        "required": [
+          "a"
+        ],
+        "reports": [
+          {
+            "incident": "a",
+            "before_failed": true,
+            "after_passed": true,
+            "regression_passed": true,
+            "constant_answer": false
+          }
+        ]
+      },
+      "output": {
+        "accepted": true,
+        "rejected": []
+      }
+    }
+  ]
+}

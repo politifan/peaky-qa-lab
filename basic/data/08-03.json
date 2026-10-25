@@ -1,0 +1,40 @@
+{
+  "restart_model": [
+    {
+      "input": [
+        {
+          "op": "write",
+          "id": "a",
+          "text": "x"
+        },
+        {
+          "op": "restart"
+        },
+        {
+          "op": "read",
+          "id": "a"
+        }
+      ],
+      "output": [
+        "x"
+      ]
+    }
+  ],
+  "durable_contract": [
+    {
+      "input": [
+        {
+          "id": "a",
+          "before": {
+            "title": "x"
+          },
+          "after": null,
+          "second_process": true
+        }
+      ],
+      "output": [
+        "a"
+      ]
+    }
+  ]
+}

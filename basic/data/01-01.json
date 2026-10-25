@@ -1,0 +1,38 @@
+{
+  "statuses": [
+    {
+      "input": [
+        {
+          "status": "passed"
+        },
+        {
+          "status": "failed"
+        }
+      ],
+      "output": {
+        "passed": 1,
+        "failed": 1,
+        "blocked": 0
+      }
+    }
+  ],
+  "mismatches": [
+    {
+      "input": [
+        {
+          "id": "b",
+          "expected": 14,
+          "actual": 13
+        },
+        {
+          "id": "a",
+          "expected": 0,
+          "actual": 0
+        }
+      ],
+      "output": [
+        "b"
+      ]
+    }
+  ]
+}

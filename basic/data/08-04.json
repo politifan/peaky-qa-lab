@@ -1,0 +1,45 @@
+{
+  "visibility_audit": [
+    {
+      "input": [
+        {
+          "attempt": "a",
+          "owner": "u",
+          "record_owner": "v",
+          "exists": true,
+          "status": 200,
+          "body_owner": "v"
+        }
+      ],
+      "output": [
+        "a"
+      ]
+    }
+  ],
+  "owner_key_model": [
+    {
+      "input": [
+        {
+          "op": "set",
+          "owner": "u",
+          "key": "k",
+          "value": "a"
+        },
+        {
+          "op": "set",
+          "owner": "v",
+          "key": "k",
+          "value": "b"
+        },
+        {
+          "op": "get",
+          "owner": "u",
+          "key": "k"
+        }
+      ],
+      "output": [
+        "a"
+      ]
+    }
+  ]
+}

@@ -1,0 +1,41 @@
+{
+  "owner_leaks": [
+    {
+      "input": {
+        "owner": "u1",
+        "rows": [
+          {
+            "id": 1,
+            "owner": "u1"
+          },
+          {
+            "id": 2,
+            "owner": "u2"
+          }
+        ]
+      },
+      "output": [
+        2
+      ]
+    }
+  ],
+  "restart_diff": [
+    {
+      "input": {
+        "before": [
+          {
+            "id": 1,
+            "title": "a"
+          }
+        ],
+        "after": []
+      },
+      "output": {
+        "lost": [
+          1
+        ],
+        "changed": []
+      }
+    }
+  ]
+}
