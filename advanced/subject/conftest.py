@@ -6,7 +6,8 @@ from types import SimpleNamespace
 import pytest, httpx, uvicorn
 from fastapi.testclient import TestClient
 ROOT = Path(__file__).resolve().parents[1]
-VARIANT = 'good'
+VARIANT = os.environ.get('PEAKY_QA_VARIANT','good')
+APP_VARIANTS={'good','quantity','schema','duplicate','volatile','tenant_leak','ui_false_success','slow','shared'}
 
 def load(path, name):
     spec = importlib.util.spec_from_file_location(name, path)
@@ -35,12 +36,12 @@ def candidate_path(tmp_path):
 @pytest.fixture
 def app_factory(candidate_path):
     module = load(candidate_path, 'subject_app_' + uuid.uuid4().hex)
-    profile = 'good'
+    profile = VARIANT if VARIANT in APP_VARIANTS else 'good'
     apps = []
 
     def factory(path):
         app = module.create_app(path, profile)
-        app.state.profile = 'good'
+        app.state.profile = profile
         apps.append(app)
         return app
     yield factory
@@ -71,7 +72,7 @@ def restart_probe(candidate_path, tmp_path):
     def run(data):
         env = os.environ.copy()
         env['CANDIDATE_APP'] = str(candidate_path)
-        env['APP_PROFILE'] = 'good'
+        env['APP_PROFILE'] = VARIANT if VARIANT in APP_VARIANTS else 'good'
 
         def action(mode, payload):
             result = subprocess.run([sys.executable, str(ROOT / 'restart_worker.py'), mode, str(tmp_path / 'process.db')], input=json.dumps(payload), text=True, capture_output=True, env=env, timeout=25)
@@ -87,7 +88,7 @@ def target():
     target = SimpleNamespace()
     shared = {'key': 'seed:73', 'tags': []}
     owned = []
-    target.payload_factory = lambda seed: {'key': 'seed:' + str(seed), 'tags': []}
+    target.payload_factory = lambda seed: shared if VARIANT=='factory_alias' else {'key': 'seed:' + str(seed), 'tags': []}
 
     @contextmanager
     def resources(log):
@@ -116,20 +117,20 @@ def target():
             response = client.get('https://provider.test/events/' + event, timeout=1)
         except httpx.TimeoutException as exc:
             raise DependencyError('timeout') from exc
-        if response.status_code != 200 and 'good' != 'dependency_status':
+        if response.status_code != 200 and VARIANT != 'dependency_status':
             raise DependencyError('status')
         body = response.json()
-        if type(body.get('available')) is not bool and 'good' != 'dependency_schema':
+        if type(body.get('available')) is not bool and VARIANT != 'dependency_schema':
             raise DependencyError('schema')
         return bool(body.get('available'))
     target.availability = availability
-    target.release = lambda row, current: row['exit_code'] == 0 and row['collected'] > 0 and (row['failed'] == 0) and (row['artifact_commit'] == current) and (row['quarantined_critical'] == 0)
+    target.release = lambda row, current: True if VARIANT=='ci_skip' else row['exit_code'] == 0 and row['collected'] > 0 and (row['failed'] == 0) and (row['artifact_commit'] == current) and (row['quarantined_critical'] == 0)
     target.execute = lambda path: subprocess.run([sys.executable, str(path)], timeout=10).returncode
 
     def counts(path):
         import xml.etree.ElementTree as ET
         suites = list(ET.parse(path).getroot().iter('testsuite'))
-        return {key: 0 if key == 'errors' and 'good' == 'junit_ignores_errors' else sum((int(s.get(key, 0)) for s in suites)) for key in ['tests', 'failures', 'errors', 'skipped']}
+        return {key: 0 if key == 'errors' and VARIANT == 'junit_ignores_errors' else sum((int(s.get(key, 0)) for s in suites)) for key in ['tests', 'failures', 'errors', 'skipped']}
     target.junit_counts = counts
     target.now = time.time
     target.expired = lambda expiry: expiry < target.now()

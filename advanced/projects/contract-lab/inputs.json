@@ -1,0 +1,30 @@
+{
+  "requirements": {
+    "R1": "quantity boundaries",
+    "R2": "strict input",
+    "R3": "response types",
+    "R4": "owner isolation",
+    "R5": "retry same effect",
+    "R6": "changed retry conflict",
+    "R7": "restart preservation",
+    "R8": "external dependency contract"
+  },
+  "old": {
+    "/a": {
+      "response": {
+        "id": "int"
+      },
+      "required_input": []
+    }
+  },
+  "new": {
+    "/a": {
+      "response": {
+        "id": "str"
+      },
+      "required_input": [
+        "token"
+      ]
+    }
+  }
+}

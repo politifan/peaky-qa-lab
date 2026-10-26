@@ -1,0 +1,8 @@
+{
+  "/a": {
+    "response": {
+      "id": "int"
+    },
+    "required_input": []
+  }
+}

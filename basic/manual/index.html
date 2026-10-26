@@ -1,0 +1,47 @@
+<!doctype html>
+<html lang="ru"><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Клуб Север — лаборатория ручного тестирования</title>
+<style>body{font:18px/1.6 system-ui;margin:2rem auto;padding:0 1rem;max-width:760px;color:#15253d}section{border:1px solid #bac8da;border-radius:10px;padding:1rem;margin:1rem 0}label{display:block;margin-top:.7rem}input,textarea,button{font:inherit;padding:.4rem;max-width:95%}button{cursor:pointer;margin-top:.6rem}output{display:block;background:#edf3fa;padding:.6rem;margin:.6rem 0}a:focus-visible,button:focus-visible,input:focus-visible,textarea:focus-visible{outline:3px solid #176cbe}small{color:#405572}</style>
+<h1>Клуб Север</h1><p>Только синтетические заявки. Сохранение этой страницы не отправляет данные в интернет.</p>
+<p id="version"></p><nav aria-label="Учебные сборки"><a href="?fault=none">Исправная</a> · <a href="?fault=age">Граница возраста</a> · <a href="?fault=booking">Бронь</a> · <a href="?fault=draft">Черновик</a> · <a href="?fault=payment">Подтверждение</a></nav>
+<section><h2>Регистрация</h2><p>Контракт: целый возраст 14–120 включительно разрешён; остальные значения отклоняются. Пустое поле — не ноль.</p>
+<form id="registration"><label for="age">Возраст</label><input id="age" inputmode="numeric" autocomplete="off"><button>Проверить допуск</button></form><output id="admission" aria-live="polite">Проверка ещё не выполнена</output></section>
+<section><h2>Бронь</h2><p>В начале каждого открытия страницы свободно 5 мест. Разрешено только целое количество от 1 до фактического остатка. Отказ не меняет остаток.</p>
+<p>Свободно: <strong id="free">5</strong></p><form id="booking"><label for="quantity">Количество мест</label><input id="quantity" inputmode="numeric" autocomplete="off"><button>Забронировать</button></form><output id="booking-result" aria-live="polite">Запросов ещё нет</output></section>
+<section><h2>Черновик заявки</h2><p>Контракт: после сохранения и нового открытия этой сборки текст должен совпадать целиком. Исходный текст записывайте в своей заметке отдельно.</p>
+<form id="draft-form"><label for="draft">Текст</label><textarea id="draft" rows="3"></textarea><button>Сохранить черновик</button></form><output id="draft-result" aria-live="polite">Сохранения ещё нет</output></section>
+<section><h2>Учебное подтверждение</h2><p>Денег и реальных платежей нет. Контракт: кнопка создаёт квитанцию на 100 учебных единиц; успех подтверждается новой квитанцией в списке.</p><button id="payment">Создать квитанцию</button><output id="payment-result" aria-live="polite">Операций ещё нет</output><ul id="receipts" aria-label="Квитанции"></ul></section>
+<p><small>Для новой попытки брони достаточно перезагрузить страницу. Черновик хранится только в собственном ключе этой сборки; его можно заменить новой синтетической меткой. Общую историю браузера и другие данные удалять не нужно.</small></p>
+<script>
+'use strict';
+const allowed=new Set(['none','age','booking','draft','payment']);
+const requested=new URLSearchParams(location.search).get('fault')||'none';
+const fault=allowed.has(requested)?requested:'none';
+document.querySelector('#version').textContent='Версия: manual-3.0 / '+fault;
+function integer(raw){return /^\d+$/.test(raw.trim())?Number(raw.trim()):null;}
+document.querySelector('#registration').addEventListener('submit',event=>{
+ event.preventDefault();const age=integer(document.querySelector('#age').value);
+ const accepted=age!==null&&age<=(120)&&age>=(fault==='age'?15:14);
+ document.querySelector('#admission').textContent=accepted?'Допуск разрешён':'Допуск отклонён';
+});
+let free=5;
+document.querySelector('#booking').addEventListener('submit',event=>{
+ event.preventDefault();const qty=integer(document.querySelector('#quantity').value);
+ const accepted=qty!==null&&qty<=(free)&&(fault==='booking'||qty>=1);
+ if(accepted)free-=qty;
+ document.querySelector('#free').textContent=String(free);
+ document.querySelector('#booking-result').textContent=accepted?'Бронь принята':'Бронь отклонена';
+});
+const storageKey='peaky-qa-manual-3:'+fault;
+try{if(fault!=='draft')document.querySelector('#draft').value=localStorage.getItem(storageKey)||'';}
+catch(error){document.querySelector('#draft-result').textContent='Хранилище недоступно: проверка заблокирована';}
+document.querySelector('#draft-form').addEventListener('submit',event=>{
+ event.preventDefault();try{localStorage.setItem(storageKey,document.querySelector('#draft').value);document.querySelector('#draft-result').textContent='Черновик сохранён';}
+ catch(error){document.querySelector('#draft-result').textContent='Сохранение не состоялось: хранилище недоступно';}
+});
+let receipt=0;
+document.querySelector('#payment').addEventListener('click',()=>{
+ document.querySelector('#payment-result').textContent='Успех';
+ if(fault!=='payment'){const li=document.createElement('li');li.textContent='Квитанция '+(++receipt)+': 100 учебных единиц';document.querySelector('#receipts').append(li);}
+});
+</script></html>

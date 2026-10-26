@@ -1,0 +1,8 @@
+{
+  "exit_code": 1,
+  "collected": 2,
+  "failed": 1,
+  "artifact_commit": "x",
+  "expected_commit": "x",
+  "quarantined_critical": 1
+}

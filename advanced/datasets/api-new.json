@@ -1,0 +1,10 @@
+{
+  "/a": {
+    "response": {
+      "id": "str"
+    },
+    "required_input": [
+      "token"
+    ]
+  }
+}

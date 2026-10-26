@@ -1,0 +1,16 @@
+Открытый опыт чувствительности теста, редакция 3.
+
+Рабочая папка advanced (в архиве она также называется lab). Python берите из своей venv.
+1. Прочитайте subject/examples/boundary.py. В subject/submissions/m01-l01-p1.py напишите собственный test_* с client и make_data.
+2. python subject/check_public.py m01-l01-p1 — исправная версия; набор не пустой, нет skip, выполнен min_tests.
+3. python subject/check_sensitivity.py m01-l01-p1 --variant quantity — тот же файл на good и версии, принимающей количество 0.
+4. Успех: good прошёл; bad дал именно assertion failure; отчёт имеет hash исходника. ImportError, crash, skip и не найденные тесты успехом не являются.
+5. Изменённое условие: отдельным тестом проверьте точный тип id и выберите --variant schema. Нельзя заменить ожидание фактическим ответом сервиса.
+
+Профили настоящего SeatLab: quantity, schema, duplicate, volatile, tenant_leak, ui_false_success, shared. Другие открытые профили относятся к fixture target: factory_alias, dependency_status, dependency_schema, ci_skip, junit_ignores_errors. Выбирайте профиль по риску своей задачи; не каждый дефект обязан обнаруживаться каждым тестом.
+Для restart_probe профиль volatile запускается в двух отдельных процессах с одним путём БД. Для browser page нужная версия поднимается автоматически fixture live_url; Chromium устанавливают через python -m playwright install chromium.
+
+Locust выполняется отдельно: в одном терминале PEAKY не нужен, задайте SEATLAB_PROFILE=good и запустите python -m uvicorn run_app:app --host 127.0.0.1 --port 8765. В другом python -m locust -f subject/submissions/project4-p2.py --headless -u 2 -r 2 -t 5s --host http://127.0.0.1:8765 --exit-code-on-error 1 --csv reports/good.
+Остановите только свой сервер. В новой отдельной учебной БД запустите SEATLAB_PROFILE=quantity и повторите тот же файл с reports/bad. good: запросы>0, failures=0; bad: failures>0 именно из-за ошибочного принятия quantity=0. Ошибка запуска сервера не считается обнаружением дефекта. В PowerShell переменная задаётся $env:SEATLAB_PROFILE="good", в Bash — export SEATLAB_PROFILE=good. Для новой БД меняют SEATLAB_DB, прежнюю сохраняют.
+
+Это локальная самопроверка. Stepik оценивает расположенные там задания отдельно; XQueue не подключён. Финал курса: один выбранный законченный проект. Остальные три предметные области — варианты, не три дополнительных обязательства.

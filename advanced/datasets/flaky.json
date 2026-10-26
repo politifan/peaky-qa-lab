@@ -1,0 +1,26 @@
+[
+  {
+    "test": "z",
+    "commit": "x",
+    "env": "same",
+    "result": "pass"
+  },
+  {
+    "test": "z",
+    "commit": "x",
+    "env": "same",
+    "result": "fail"
+  },
+  {
+    "test": "a",
+    "commit": "x",
+    "env": "same",
+    "result": "pass"
+  },
+  {
+    "test": "a",
+    "commit": "x",
+    "env": "same",
+    "result": "fail"
+  }
+]

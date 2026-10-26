@@ -1,0 +1,16 @@
+[
+  {
+    "id": 1,
+    "owner": "a",
+    "key": "k",
+    "event": "e",
+    "quantity": 1
+  },
+  {
+    "id": 2,
+    "owner": "b",
+    "key": "k",
+    "event": "e",
+    "quantity": 2
+  }
+]

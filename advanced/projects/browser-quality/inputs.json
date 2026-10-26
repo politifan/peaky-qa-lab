@@ -1,0 +1,18 @@
+{
+  "browsers": [
+    "chromium",
+    "firefox"
+  ],
+  "scenarios": [
+    "create",
+    "invalid",
+    "retry",
+    "conflict",
+    "owners",
+    "restart",
+    "timeout",
+    "bad-json",
+    "two-buttons",
+    "false-success"
+  ]
+}

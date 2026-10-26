@@ -1,0 +1,20 @@
+[
+  {
+    "case": "z",
+    "request_owner": "a",
+    "record_owner": "b",
+    "status": 200
+  },
+  {
+    "case": "a",
+    "request_owner": "a",
+    "record_owner": "b",
+    "status": 200
+  },
+  {
+    "case": "a",
+    "request_owner": "a",
+    "record_owner": "b",
+    "status": 200
+  }
+]

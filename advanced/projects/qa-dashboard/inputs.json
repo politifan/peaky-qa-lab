@@ -1,0 +1,24 @@
+{
+  "runs": [
+    {
+      "attempt": "one",
+      "commit": "demo",
+      "tests": 4,
+      "failures": 0,
+      "errors": 0,
+      "skipped": 0,
+      "exit_code": 0,
+      "artifact_hash": "demo-hash"
+    },
+    {
+      "attempt": "two",
+      "commit": "demo",
+      "tests": 0,
+      "failures": 0,
+      "errors": 0,
+      "skipped": 0,
+      "exit_code": 0,
+      "artifact_hash": "demo-hash"
+    }
+  ]
+}

@@ -1,0 +1,18 @@
+{
+  "old": {
+    "/a": {
+      "response": {},
+      "required_input": [
+        "q"
+      ]
+    }
+  },
+  "new": {
+    "/a": {
+      "response": {
+        "name": "str"
+      },
+      "required_input": []
+    }
+  }
+}

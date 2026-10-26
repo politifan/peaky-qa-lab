@@ -1,0 +1,17 @@
+{
+  "seed": 73,
+  "users": 10,
+  "spawn_rate": 2,
+  "wait_min": 0.1,
+  "wait_max": 0.3,
+  "warmup_seconds": 10,
+  "steady_seconds": 60,
+  "repeat_count": 3,
+  "phases": [
+    "baseline",
+    "slow",
+    "repaired"
+  ],
+  "max_p95_ms": 500,
+  "max_error_bp": 100
+}

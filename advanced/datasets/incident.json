@@ -1,0 +1,16 @@
+{
+  "required": [
+    "api",
+    "db"
+  ],
+  "events": [
+    {
+      "request": "z",
+      "stage": "api"
+    },
+    {
+      "request": "a",
+      "stage": "db"
+    }
+  ]
+}

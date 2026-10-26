@@ -1,5 +1,7 @@
-# Peaky Minds QA labs
+# QA — Peaky Minds, редакция 3
 
-Learner sources for Stepik courses 301883 and 301884. Start with START-HERE.txt in the chosen folder. Complete learner archives with the existing reading materials are attached to the course-final-20261026 release. Synthetic data and loopback services only.
+Базовый курс: https://stepik.org/course/301883 — первые девять уроков используют `basic/manual/index.html`, без Python. Затем готовый HTTP API, реальные SQL и Git; язык вводится отдельной лестницей.
 
-The existing course runtime is retained. This publication completes learner navigation and instructions; no new full runtime acceptance or independent learner pilot is claimed. Stepik scores its declared algorithms. Local pytest, browser and load evidence remain separate.
+Продвинутый: https://stepik.org/course/301884 — `advanced/START-HERE.txt`, настоящий SeatLab и собственные pytest/Playwright/Locust проверки. `subject/check_public.py` проверяет good и минимальный набор, `subject/check_sensitivity.py` требует assertion failure того же файла на выбранном дефекте. Тривиальный зелёный тест не проходит.
+
+У каждого уровня один законченный итог. Четыре области advanced — варианты выбора. Старые DOCX — справочный архив редакции 2; актуальные порядок и критерии находятся в Stepik и START-HERE. Локальная проверка не отправляет баллы на Stepik; External Grader не подключён.

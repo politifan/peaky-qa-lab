@@ -1,0 +1,14 @@
+{
+  "before": [
+    {
+      "id": 1,
+      "quantity": 2
+    }
+  ],
+  "after": [
+    {
+      "id": 1,
+      "quantity": 2
+    }
+  ]
+}
